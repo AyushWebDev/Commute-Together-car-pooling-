@@ -1,0 +1,84 @@
+<style type="text/css">
+		.navbar-header img{
+			height: 100px;
+			width: 100px;
+			
+			
+			border-radius: 80px;
+		}
+		
+		.navbar ul li{
+			padding: 20px 20px;
+		}
+		.navbar .navbar-right{
+			margin-right: 30px;
+		}
+		.navbar{
+			padding: 5px;
+			opacity: .6;
+			background-color: none;
+		}
+		.title h2{
+			font-size: 40px;
+			margin-top: 30px;
+			font-family: impact;
+			color: #4d0000;
+		}
+		.upper{
+			background-image: url(bgimg1.png);
+			background-size: 100%;
+			padding: 10px 10px;
+			height: 650px;
+		}
+		.mid h1{
+			font-size: 50px;
+			font-family: fantasy;
+		}
+		.mid{
+			padding: 30px;
+		}
+		
+		.navbar .nav .btn{
+			padding-left: 30px;
+			padding-right: 30px;
+			color: #996433;
+			border-color: #996433;
+		}
+		.navbar-brand{
+			border: none;
+		}
+		.middle{
+			padding-top: 30px;
+			
+		}
+		#mid-head{
+			text-align: center;
+			font-family: 
+			background-color: #e6f3ff;
+		}
+		p{
+			font-size: 20px;
+			text-align: center;
+		}
+		.row1{
+			padding-top: 145px;
+		}
+		.row2{
+			padding-top: 60px;
+		}
+		.midimg1{
+			width: 300px;
+			height: 300px;
+		}
+		.middle .row{
+			padding: 10px;
+			margin: 10px 10px;
+		}
+		h2{
+			color: #4d0000;
+			font-family: cursive;
+		}
+		
+		.middle .row1 p{
+			background-color: white;
+		}
