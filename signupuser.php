@@ -7,7 +7,7 @@
 	$conn=connect();
 
 	$_POST['firstname'] = trim($_POST['firstname']);
-	$_POST['lastname'] = trim($_POST['lastname']);
+	$_POST['lastname'] = trim($_POST['lastname']); 
 	$_POST['email'] = trim($_POST['email']);
 	$_POST['contact'] = trim($_POST['contact']);
 	$_POST['password'] = trim($_POST['password']);
@@ -77,6 +77,7 @@
 			else
 				$error['password']="Password must contain atleast 6 letters!";
 		}
+		
 
 		if(empty($_POST['contact'])){
 			$error['contact'] = "Contact is required";

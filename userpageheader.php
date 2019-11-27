@@ -1,6 +1,7 @@
 <?php
 	include "connect.php";
 	$conn=connect();
+	if(isset($_SESSION['_login']))
 	$userid=$_SESSION['_login'];
 	$sql="select count(*) from rides where id=:u";
 			$stmt=$conn->prepare($sql);
@@ -89,7 +90,7 @@
 									if(isset($_SESSION['user']))
 									{
 										$user=$_SESSION['user'];
-										echo $user['firstname']." ".$user['lastname'];
+										echo ucfirst($user['firstname'])." ".ucfirst($user['lastname']);
 									} 
 
 								?></b>

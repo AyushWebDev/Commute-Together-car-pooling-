@@ -7,7 +7,7 @@ if(isset($_SESSION['error']))
 	$error=$_SESSION['error'];
 if(isset($_SESSION['value']))
 	$value=$_SESSION['value'];
-include "header.php";
+include "header.php"; 
 
 ?>
 <!DOCTYPE html>

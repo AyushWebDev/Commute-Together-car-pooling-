@@ -8,7 +8,7 @@
 	<style type="text/css">
 		.navbar-header img{
 			height: 100px;
-			width: 100px;
+			width: 100px; 
 			
 			
 			border-radius: 80px;

@@ -9,7 +9,8 @@
 	$userid=$_SESSION['_login'];
 	
 
-	
+	$_POST['country']=trim($_POST['country']);
+	$_POST['city']=trim($_POST['city']);
 	$_POST['date']=trim($_POST['date']);
 	$_POST['from']=trim($_POST['from']);
 	$_POST['to']=trim($_POST['to']);
@@ -18,6 +19,45 @@
 	if($_SERVER['REQUEST_METHOD']=='POST')
 	{
 		
+		if(empty($_POST['country']))
+		{
+			$error['country']="*Country is required";
+		}
+		else
+		{
+			if(!preg_match("/^[a-z A-Z]+$/",$_POST['country']))
+			$error['country']="Invalid COUNTRY NAME";	
+			else
+			{
+				try{
+					$sql="select * from countries where country=:c";
+					$stmt=$conn->prepare($sql);
+					$stmt->bindParam(':c',$_POST['country']);
+					$stmt->execute();
+					if($stmt->rowCount()>0)
+						$value['country']=$_POST['country'];
+					else
+						$error['country']="Service Not available for your country";
+				}
+				catch(PDOException $e){
+					    echo "<br>".$e->getMessage();
+					    die();
+				}
+			}
+		}
+
+
+		if(empty($_POST['city']))
+		{
+			$error['city']="*City is required";
+		}
+		else
+		{
+			if(!preg_match("/^[a-z A-Z]+$/",$_POST['city']))
+				$error['city']="Invalid CITY NAME";
+			else
+				$value['city']=$_POST['city'];
+		}
 
 		
 
@@ -78,7 +118,7 @@
 	}
 	
 		try{
-			$sql="select rides.*,user.firstname,user.lastname,user.email,user.contact from rides natural join user where origin=:from and destination=:to and date=:date";
+			$sql="select rides.*,user.firstname,user.lastname,user.email,user.contact from rides natural join user where country=:country and city=:city and date=:date and origin=:from and destination=:to";
 			$stmt=$conn->prepare($sql);
 			$stmt->execute($value);
 
@@ -128,12 +168,8 @@
 <body>
 	<?php
 		if($stmt->rowCount()>0)
-		{
-			foreach($ridesAvail as $r)
-			{
-	?>
-	<div>
-		<div class="container">
+		{?>
+			<div class="container">
 		<div class="col-md-4"></div>
 		<div class="panel panel-default col-md-4 head">
 			<div class="panel panel-heading">
@@ -141,6 +177,12 @@
 			</div>
 		</div>
 		</div>
+
+			<?php foreach($ridesAvail as $r)
+			{
+	?>
+	<div>
+		
 		<div class="container">
 			<div class="col-md-1"></div>
 			<div class="col-md-4">
@@ -153,6 +195,7 @@
 		<div class="col-md-6 main">
 			<ul>
 				<li><h3><strong><?php echo $r['firstname']." ".$r['lastname'];?></strong></h3></li>
+				<li><h4>Ride As:  <?php echo strtoupper($r['rideas']);?></h4></li>
 				<li><h4>Departure Time: <?php echo $r['time'];?></h4></li>
 				<li><h4> <i class="fa fa-phone call" style="font-size: 25px;"></i> : +91<?php echo $r['contact'];?> </h4></li>
 				<li><h4><i class="fa fa-envelope mail" style="font-size: 25px;"></i> : <?php echo $r['email'];?></h4></li>

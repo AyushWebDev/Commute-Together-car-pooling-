@@ -21,7 +21,7 @@
 			
 			    	header("location:userpage.php");
 		}
-
+ 
 	}
 
 	function logout()
@@ -29,7 +29,7 @@
 		if(isset($_SESSION['_login']))
 			unset($_SESSION['_login']);
 	
-			header("localhost:homepage.php");
+			header("location:homepage.php");
 				
 	}
 ?>

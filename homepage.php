@@ -150,11 +150,16 @@ catch(PDOException $e)
 						<div class="form-group">
 							<label>Password</label>
 							<input type="password" name="password">
+							<!-- <span style="display: block; color: #4d0000;"><a href="forgotpass.php">Forgot Password</a></span> -->
 							<span style="color: red; display: block;"><?php if(isset($error['password'])) echo $error['password']?></span>
 						</div>
 						<button type="submit" class="btn">Login</button>
 						<div class="form-group">
 							<a href="" class="form-control" onclick="">Cancel</a>
+						</div>
+						<div class="col-md-5"></div>
+						<div class="col-md-6">
+							<span style="display: block; color: #4d0000;"><a href="forgotpass.php">Forgot Password</a></span>
 						</div>
 					</form>
 				</div>

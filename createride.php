@@ -35,11 +35,11 @@ session_start();
 		.panel-body span{
 			color: red;
 		}
-		#createridelink{
-			box-shadow: 1px 1px 5px;
-		}
 		#homelink{
 			box-shadow: 0px 0px 0px;
+		}
+		#createridelink{
+			box-shadow: 1px 1px 5px;
 		}
 		#searchlink{
 			box-shadow: 0px 0px 0px;
@@ -69,7 +69,7 @@ session_start();
 					</label>
 					<label class="radio-inline">
 						
-						<input type="radio" name="rideas" value="either">Either
+						<input type="radio" name="rideas" value="Driver/Passenger">Either
 					</label>
 					<span><?php if(isset($error['rideas'])) echo $error['rideas'];?></span>
 				</div>
