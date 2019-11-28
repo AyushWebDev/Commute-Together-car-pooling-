@@ -54,4 +54,11 @@
 
 	}
 
+	else
+	{
+		$_SESSION['error']=$error;
+		$_SESSION['value']=$value;
+		header("location:changepass.php");
+	}
+
 ?>

@@ -3,7 +3,7 @@
 session_start();
 	require "helper.php";
 	logout();
-	flash("success","logged out successfuly");
+	flash("success","Logged Out Successfuly");
 	header("location:homepage.php");
 	 
 

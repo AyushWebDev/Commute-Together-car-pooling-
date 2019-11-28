@@ -69,7 +69,7 @@ include "header.php";
 	<div class="col-md-4"></div>
 	<div class="col-md-4 formcontainer">
 		<div class="col-md-6 btn headbutton" id="headbutton1" onclick="signupForm();">Sign Up</div>
-		<div class="col-md-6 btn headbutton" id="headbutton2" onclick="signinForm();">Sign In</div>
+		<div class="col-md-6 btn headbutton" id="headbutton2" onclick="signinForm();">Log In</div>
 
 		<form id="form-signup" action="signupuser.php" method="POST"> 
 			<div class="form-group">
@@ -110,17 +110,21 @@ include "header.php";
 			</button>
 		</form>
 
-		<form id="form-signin" action="loginuser.php">
+		<form id="form-signin" action="loginuser.php" method="POST">
 			<div class="form-group">
-				<input type="text" name="email" placeholder="Username(Email)" class="form-control">
+				<input type="text" name="email" placeholder="Username(Email)" class="form-control" value="<?php if(isset($value['email'])) echo $value['email']?>">
+				<span style="color: red;"><?php if(isset($error['email'])) echo $error['email']?></span>
+
 			</div>
 
 			<div class="form-group">
 				<input type="password" name="password" placeholder="Password" class="form-control">
+				<span style="color: red;"><?php if(isset($error['password'])) echo $error['password']?></span>
+
 			</div>
 
 			<button type="submit" class="btn btn-block submitbut">
-				Sign In
+				Log In
 			</button>
 		</form>
 	</div>

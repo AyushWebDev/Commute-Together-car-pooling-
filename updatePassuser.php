@@ -27,7 +27,7 @@
 
 
 		if(empty($newpass))
-			$error['newpass']="Enter New Password";
+			$error['newpass']="Enter Password";
 		else {
 			if(strlen($newpass)<6)
 				$error['newpass']="PASSWORD MUST HAVE ATLEAST 6 LETTERS";
@@ -52,6 +52,12 @@
 		flash("success","Password Changed Succesfully");
 		header("location: homepage.php");
 
+	}
+	else
+	{
+		$_SESSION['error']=$error;
+		$_SESSION['value']=$value;
+		header("location:updatePass.php?u=".$id);
 	}
 
 ?>
